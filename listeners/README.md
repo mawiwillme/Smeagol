@@ -5,5 +5,3 @@ Methods to communicate with client.
  - https listener
  - experimental listeners
 
-### Staging and stagers
-
